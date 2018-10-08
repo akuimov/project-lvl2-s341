@@ -1,10 +1,10 @@
 {
-  "name": "my-first-cli",
-  "version": "1.0.0",
+  "name": "my-cli-hexlet-project",
+  "version": "1.0.1",
   "description": "Second project on Hexlet",
   "main": "index.js",
   "bin": {
-    "brain-games": "dist/bin/gendiff.js"
+    "gendiff": "dist/bin/gendiff.js"
   },
   "files": [
     "dist"
