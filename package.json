@@ -43,5 +43,8 @@
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-babel": "^5.2.1"
+  },
+  "dependencies": {
+    "commander": "^2.18.0"
   }
 }
