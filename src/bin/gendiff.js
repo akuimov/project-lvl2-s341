@@ -1,5 +1,7 @@
 #!/usr/bin/env node
+
 // import { version } from '../../package.json';
+
 const program = require('commander');
 
 program
