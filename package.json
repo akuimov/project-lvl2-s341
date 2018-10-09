@@ -1,6 +1,6 @@
 {
   "name": "my-cli-hexlet-project",
-  "version": "1.0.4",
+  "version": "1.0.0",
   "description": "Second project on Hexlet",
   "main": "index.js",
   "bin": {
@@ -33,25 +33,15 @@
   },
   "homepage": "https://github.com/akuimov/project-lvl2-s341#readme",
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.3",
-    "babel-eslint": "^8.2.3",
-    "babel-jest": "^22.4.3",
-    "babel-plugin-transform-runtime": "*",
-    "babel-preset-flow": "^6.23.0",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-stage-0": "^6.24.1",
-    "debug": "^3.1.0",
-    "eslint": "^4.19.1",
-    "eslint-config-airbnb-base": "^12.1.0",
-    "eslint-plugin-babel": "^5.1.0",
-    "eslint-plugin-import": "^2.12.0",
-    "eslint-plugin-flowtype": "^2.46.1",
-    "eslint-plugin-jest": "^21.15.0",
-    "flow-bin": "^0.57",
-    "flow-typed": "^2.4.0",
-    "jest-cli": "^22.4.3",
-    "jest": "^23.5.0"
+    "@babel/cli": "^7.1.2",
+    "@babel/core": "^7.1.2",
+    "@babel/node": "^7.0.0",
+    "@babel/preset-env": "^7.1.0",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.6.1",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-babel": "^5.2.1",
+    "eslint-plugin-import": "^2.14.0"
   },
   "dependencies": {
     "commander": "^2.18.0"
