@@ -7,4 +7,3 @@ commander
   .version('1.0.1')
   .option('-f, --format [type]', 'Output format');
 commander.parse(process.argv);
-
