@@ -17,7 +17,7 @@ const genDiff = (pathFile1, pathFile2) => {
   const file2 = parseFile(pathFile2);
 
   const str1 = _.reduce(file1, (acc, value, key) => {
-    if (file2[key] !== undefined) {
+    if (_.has(file2, key)) {
       if (file1[key] === file2[key]) {
         return [...acc, `${key}: ${value}`];
       }
@@ -28,7 +28,7 @@ const genDiff = (pathFile1, pathFile2) => {
     return [...acc, `- ${key}: ${value}`];
   }, []);
 
-  const str2 = _.reduce(file2, (acc, value, key) => (file1[key] !== undefined
+  const str2 = _.reduce(file2, (acc, value, key) => (_.has(file1, key)
     ? acc
     : [...acc, `+ ${key}: ${file2[key]}`]), []);
 
