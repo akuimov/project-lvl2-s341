@@ -30,7 +30,7 @@ const genDiff = (pathFile1, pathFile2) => {
     ? acc
     : [...acc, `+ ${key}: ${file2[key]}`]), []);
 
-  return console.log(_.concat(str1, str2).join('\n'));
+  return _.concat(str1, str2).join('\n');
 };
 
 export default genDiff;
