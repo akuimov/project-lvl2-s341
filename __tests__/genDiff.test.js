@@ -1,10 +1,13 @@
 
-import genDiff from '../src/bin/gendiff';
-import result from './__fixtures__/result';
+import _ from 'lodash';
+import genDiff, { parseFile } from '../src';
+
+const fixtures = __dirname;
 
 it('works with `import`', () => {
-  const res = result();
-  const obj1 = './__fixtures__/before.json';
-  const obj2 = './__fixtures__/after.json';
-  expect(genDiff(obj1, obj2)).toBe(res);
+  const result = _.reduce(parseFile(`${fixtures}/__fixtures__/result.json`), ((acc, value, index) => [...acc, `${index}: ${value}`]), []).join('\n');
+
+  const before = `${fixtures}/__fixtures__/before.json`;
+  const after = `${fixtures}/__fixtures__/after.json`;
+  expect(genDiff(before, after)).toBe(result);
 });
