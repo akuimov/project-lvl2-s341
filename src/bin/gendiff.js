@@ -35,6 +35,6 @@ const genDiff = (pathFile1, pathFile2) => {
   return console.log(_.concat(str1, str2).join('\n'));
 };
 
-genDiff(process.argv[2], process.argv[3]);
+// genDiff(process.argv[2], process.argv[3]);
 
 export default genDiff;
