@@ -1,24 +1,5 @@
-import commander from 'commander';
 import _ from 'lodash';
-import fs from 'fs';
-import path from 'path';
-import yaml from 'js-yaml';
-
-commander
-  .description('Compares two configuration files and shows a difference.')
-  .version('1.0.1')
-  .option('-f, --format [type]', 'Output format');
-commander.parse(process.argv);
-
-export const parsers = (pathFile) => {
-  const parser = {
-    '.json': JSON.parse,
-    '.yml': yaml.safeLoad,
-  };
-
-  const extension = path.extname(pathFile);
-  return parser[extension](fs.readFileSync(pathFile, 'utf8'));
-};
+import parsers from './parsers';
 
 const genDiff = (pathFile1, pathFile2) => {
   const file1 = parsers(pathFile1);

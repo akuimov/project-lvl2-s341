@@ -1,5 +1,14 @@
 #!/usr/bin/env node
 
+import program from 'commander';
+import { version } from '../../package.json';
 import genDiff from '..';
 
-console.log(genDiff(process.argv[2], process.argv[3]));
+program
+  .version(version)
+  .description('Compares two configuration files and shows a difference.')
+  .option('-f, --format [type]', 'Output format', 'recursive')
+  .arguments('<firstConfig> <secondConfig>')
+  .action((firstConfig, secondConfig) => console.log(genDiff(firstConfig, secondConfig)));
+
+program.parse(process.argv);
