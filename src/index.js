@@ -1,27 +1,37 @@
 import _ from 'lodash';
+import fs from 'fs';
+import path from 'path';
 import parsers from './parsers';
 
 const genDiff = (pathFile1, pathFile2) => {
-  const file1 = parsers(pathFile1);
-  const file2 = parsers(pathFile2);
+  const obj1 = fs.readFileSync(pathFile1, 'utf8');
+  const obj2 = fs.readFileSync(pathFile2, 'utf8');
 
-  const str1 = _.reduce(file1, (acc, value, key) => {
-    if (_.has(file2, key)) {
-      if (file1[key] === file2[key]) {
-        return [...acc, `${key}: ${value}`];
+  const extension1 = path.extname(pathFile1);
+  const extension2 = path.extname(pathFile2);
+
+  const file1 = parsers(obj1, extension1);
+  const file2 = parsers(obj2, extension2);
+
+  const unionObj = _.union(Object.keys(file1), Object.keys(file2));
+
+  const result = unionObj.map((value) => {
+    if (_.has(file1, value)) {
+      if (_.has(file2, value)) {
+        if (file1[value] === file2[value]) {
+          return `${value}: ${file1[value]}`;
+        }
+
+        return `+ ${value}: ${file1[value]}\n- ${value}: ${file2[value]}`;
       }
 
-      return [...acc, `+ ${key}: ${value}`, `- ${key}: ${file2[key]}`];
+      return `- ${value}: ${file1[value]}`;
     }
 
-    return [...acc, `- ${key}: ${value}`];
-  }, []);
+    return `+ ${value}: ${file2[value]}`;
+  });
 
-  const str2 = _.reduce(file2, (acc, value, key) => (_.has(file1, key)
-    ? acc
-    : [...acc, `+ ${key}: ${file2[key]}`]), []);
-
-  return _.concat(str1, str2).join('\n');
+  return result.join('\n');
 };
 
 export default genDiff;
