@@ -27,6 +27,15 @@ it('Сomparison ini files', () => {
   expect(genDiff(beforeIni, afterIni)).toBe(result);
 });
 
+it('JSON serialise', () => {
+  const beforeIni = `${fixtures}/__fixtures__/before.ini`;
+  const afterIni = `${fixtures}/__fixtures__/after.ini`;
+  const result = fs.readFileSync(`${fixtures}/__fixtures__/parseJSON.json`, 'utf8');
+
+  expect(genDiff(beforeIni, afterIni, 'json')).toBe(result);
+});
+
+
 it('Formats', () => {
   const beforeJson = `${fixtures}/__fixtures__/before.json`;
   const afterJson = `${fixtures}/__fixtures__/after.json`;

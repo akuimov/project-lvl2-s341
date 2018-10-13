@@ -1,6 +1,6 @@
 {
   "name": "my-cli-hexlet-project",
-  "version": "1.4.1",
+  "version": "1.5.1",
   "description": "Second project on Hexlet",
   "main": "index.js",
   "bin": {
@@ -48,7 +48,7 @@
     "eslint-plugin-babel": "^5.2.0",
     "eslint-plugin-flowtype": "^2.50.0",
     "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-jest": "^21.22.0",
+    "eslint-plugin-jest": "^21.24.1",
     "eslint-plugin-lodash-fp": "^2.2.0-a1",
     "jest": "^23.6.0",
     "jest-cli": "^23.6.0"
