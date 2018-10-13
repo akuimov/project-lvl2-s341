@@ -7,8 +7,10 @@ import genDiff from '..';
 program
   .version(version)
   .description('Compares two configuration files and shows a difference.')
-  .option('-f, --format [type]', 'Output format', 'recursive')
+  .option('-f, --format [type]', 'Output format', 'start')
   .arguments('<firstConfig> <secondConfig>')
-  .action((firstConfig, secondConfig) => console.log(genDiff(firstConfig, secondConfig)));
+  .action((firstConfig, secondConfig) => {
+    console.log(genDiff(firstConfig, secondConfig, program.format));
+  });
 
 program.parse(process.argv);

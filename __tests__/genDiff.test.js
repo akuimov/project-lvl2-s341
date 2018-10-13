@@ -26,3 +26,11 @@ it('Сomparison ini files', () => {
 
   expect(genDiff(beforeIni, afterIni)).toBe(result);
 });
+
+it('Formats', () => {
+  const beforeJson = `${fixtures}/__fixtures__/before.json`;
+  const afterJson = `${fixtures}/__fixtures__/after.json`;
+  const result = fs.readFileSync(`${fixtures}/__fixtures__/formatresult.txt`, 'utf8');
+
+  expect(genDiff(beforeJson, afterJson, 'format')).toBe(result);
+});
